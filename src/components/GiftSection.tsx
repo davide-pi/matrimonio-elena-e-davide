@@ -1,4 +1,3 @@
-import { Copy } from 'lucide-react';
 import { useState } from 'react';
 
 const GiftSection = () => {
@@ -15,9 +14,6 @@ const GiftSection = () => {
         console.error('Failed to copy: ', err);
       });
   };
-
-  // Format IBAN with spaces for better readability
-  const formattedIban = iban.match(/.{1,4}/g)?.join(' ') || iban;
 
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center">
@@ -37,16 +33,13 @@ const GiftSection = () => {
             className="bg-white rounded py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto"
           >
             <span className="inline-block min-w-full text-center">IBAN</span>
-            <div className="relative">
-              <span className="inline-block min-w-full text-center">{formattedIban}</span>
-              <button
-                onClick={handleCopyIban}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-sage-500 hover:text-sage-700 transition-colors bg-white px-2"
-                title="Copia IBAN"
-              >
-                <Copy size={18} />
-              </button>
-            </div>
+            <button
+              onClick={handleCopyIban}
+              className="text-sage-500 hover:text-sage-700 transition-colors bg-white px-2"
+              title="Copia IBAN"
+            >
+              {iban}
+            </button>
           </div>
 
           {copied && (
