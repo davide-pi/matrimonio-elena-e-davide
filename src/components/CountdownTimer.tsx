@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface CountdownTimerProps {
   targetDate: string;
@@ -53,24 +54,26 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
 
   return (
     <div className="flex justify-center items-center space-x-2 md:space-x-4">
-      <CountdownItem value={timeLeft.days} label="Giorni" />
+      <CountdownItem value={timeLeft.days} label="countdown.days" />
       <CountdownDivider />
-      <CountdownItem value={timeLeft.hours} label="Ore" />
+      <CountdownItem value={timeLeft.hours} label="countdown.hours" />
       <CountdownDivider />
-      <CountdownItem value={timeLeft.minutes} label="Minuti" />
+      <CountdownItem value={timeLeft.minutes} label="countdown.minutes" />
       <CountdownDivider />
-      <CountdownItem value={timeLeft.seconds} label="Secondi" />
+      <CountdownItem value={timeLeft.seconds} label="countdown.seconds" />
     </div>
   );
 };
 
 const CountdownItem: React.FC<{ value: number; label: string }> = ({ value, label }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center animate-pulse">
       <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md w-16 md:w-24 h-16 md:h-24 flex items-center justify-center border border-sage-200">
         <span className="text-2xl md:text-4xl font-bold text-sage-800">{value}</span>
       </div>
-      <span className="text-xs md:text-sm mt-2 text-sage-700">{label}</span>
+      <span className="text-xs md:text-sm mt-2 text-sage-700">{t(label)}</span>
     </div>
   );
 };

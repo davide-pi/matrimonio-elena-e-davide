@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Calendar, ArrowRight, MessageCircle, PlaneIcon } from 'lucide-react';
 import CountdownTimer from './components/CountdownTimer';
 import EventDetails from './components/EventDetails';
-import GiftSection from './components/GiftSection';
+import Gift from './components/Gift';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 import Separator from './components/Separator';
-import { SPOUSES } from './config/SpousesInfo';
+import LanguageSelector from './components/LanguageSelector';
+import { SPOUSES } from './config/WeddingInfo';
 
 function App() {
+  const { t } = useTranslation();
+  document.title = t('app.title');
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Add a small delay for the fade-in effect
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 300);
@@ -22,6 +26,8 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-gradient-to-b from-sage-50 to-sage-100 font-serif text-sage-800 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <LanguageSelector />
+
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8 bg-cover bg-center"
            style={{
@@ -32,14 +38,16 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80"></div>
 
         <div className="relative z-10 max-w-4xl mx-auto">
-          <p className="text-sage-600 italic mb-2 animate-fadeIn">Annunciamo il nostro matrimonio</p>
+          <p className="text-sage-600 italic mb-2 animate-fadeIn">
+            {t('app.announcement')}
+          </p>
           <h1 className="font-cursive text-5xl md:text-7xl mb-6 text-sage-800 animate-fadeIn animation-delay-300">
             {SPOUSES.bride.name} <span className="text-sage-600">&</span> {SPOUSES.groom.name}
           </h1>
 
           <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">
             <Calendar className="inline-block mr-2 mb-1" size={20} />
-            20 Settembre 2025 • Ore 16:30
+            {t('app.date')} • {t('app.time')}
           </p>
 
           <CountdownTimer targetDate="2025-09-20T16:30:00" />
@@ -49,7 +57,7 @@ function App() {
               href="#details"
               className="inline-flex items-center px-6 py-3 rounded-full bg-sage-600 text-white hover:bg-sage-700 transition-colors duration-300"
             >
-              Scopri di più <ArrowRight className="ml-2" size={18} />
+              {t('app.discoverMore')} <ArrowRight className="ml-2" size={18} />
             </a>
           </div>
         </div>
@@ -60,7 +68,9 @@ function App() {
       {/* Details Section */}
       <section id="details" className="py-16 px-4 md:px-8 bg-beige-50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">I Dettagli</h2>
+          <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
+            {t('details.title')}
+          </h2>
           <EventDetails />
         </div>
       </section>
@@ -72,7 +82,7 @@ function App() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
             <MessageCircle className="inline-block mr-2 mb-1" size={28} />
-            RSVP
+            {t('rsvp.title')}
           </h2>
           <RSVP />
         </div>
@@ -85,11 +95,9 @@ function App() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
             <PlaneIcon className="inline-block mr-2 mb-1" size={28} />
-            {/* <Gift className="inline-block mr-2 mb-1" size={28} /> */}
-            {/* Regalo di Nozze */}
-            Poi voleremo in Asia...
+            {t('gift.title')}
           </h2>
-          <GiftSection />
+          <Gift />
         </div>
       </section>
 
