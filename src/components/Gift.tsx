@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
-const GiftSection = () => {
+const Gift = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const iban = "IT87Y0306965734100000005260";
 
@@ -19,12 +21,11 @@ const GiftSection = () => {
     <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center">
       <div className="max-w-xl mx-auto">
         <div className="mb-8">
-
           <p className="text-sage-700">
-            Celebreremo questo nuovo inizio con un viaggio ricco di esperienze uniche.
+            {t('gift.description')}
           </p>
-          <p className="text-sage-700 mt-2">
-            Se lo desiderate, potete contribuire anche voi a regalarci ricordi indimenticabili.
+          <p className="text-sage-700 mt-4">
+            {t('gift.contribution')}
           </p>
         </div>
 
@@ -32,11 +33,11 @@ const GiftSection = () => {
           <div
             className="bg-white rounded py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto"
           >
-            <span className="inline-block min-w-full text-center">IBAN</span>
+            <span className="inline-block min-w-full text-center">{t('gift.iban')}</span>
             <button
               onClick={handleCopyIban}
               className="text-sage-500 hover:text-sage-700 transition-colors bg-white px-2"
-              title="Copia IBAN"
+              title={t('gift.iban')}
             >
               {iban}
             </button>
@@ -44,7 +45,7 @@ const GiftSection = () => {
 
           {copied && (
             <div className="text-sage-600 text-sm animate-fadeIn">
-              IBAN copiato negli appunti!
+              {t('gift.copied')}
             </div>
           )}
         </div>
@@ -53,4 +54,4 @@ const GiftSection = () => {
   );
 };
 
-export default GiftSection;
+export default Gift;
