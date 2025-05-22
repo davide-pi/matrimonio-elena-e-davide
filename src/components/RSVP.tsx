@@ -25,7 +25,7 @@ const RSVP = () => {
             <h4 className="font-semibold mb-2">{SPOUSES.bride.name}</h4>
             <p className="flex items-center justify-center">
               <Phone className="mr-2 hidden md:inline" size={16} />
-              <a href={`https://wa.me/${SPOUSES.bride.whatsappLink}`} className="inline md:hidden">
+              <a href={SPOUSES.bride.whatsappLink} className="inline md:hidden">
                 <WhatsApp className="mr-2" size={24} />
               </a>
               {SPOUSES.bride.formattedPhone}
@@ -36,7 +36,7 @@ const RSVP = () => {
             <h4 className="font-semibold mb-2">{SPOUSES.groom.name}</h4>
             <p className="flex items-center justify-center">
               <Phone className="mr-2 hidden md:inline" size={16} />
-              <a href={`https://wa.me/${SPOUSES.groom.whatsappLink}`} className="inline md:hidden">
+              <a href={SPOUSES.groom.whatsappLink} className="inline md:hidden">
                 <WhatsApp className="mr-2" size={24} />
               </a>
               {SPOUSES.groom.formattedPhone}
