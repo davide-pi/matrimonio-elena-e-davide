@@ -1,5 +1,6 @@
 import { Calendar, Phone } from 'lucide-react';
 import { useTranslation } from "react-i18next";
+import { SpouseContactCard} from './SpouseContactCard';
 import { WhatsApp } from '../icons/WhatsApp';
 import { SPOUSES } from '../config/WeddingInfo';
 
@@ -21,28 +22,10 @@ const RSVP = () => {
         <h3 className="text-lg font-medium text-sage-800 mb-4">{t('rsvp.contact')}</h3>
 
         <div className="grid md:grid-cols-2 gap-4 text-sage-700">
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold mb-2">{SPOUSES.bride.name}</h4>
-            <p className="flex items-center justify-center">
-              <Phone className="mr-2 hidden md:inline" size={16} />
-              <a href={SPOUSES.bride.whatsappLink} className="inline md:hidden">
-                <WhatsApp className="mr-2" size={24} />
-              </a>
-              {SPOUSES.bride.formattedPhone}
-            </p>
-          </div>
 
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold mb-2">{SPOUSES.groom.name}</h4>
-            <p className="flex items-center justify-center">
-              <Phone className="mr-2 hidden md:inline" size={16} />
-              <a href={SPOUSES.groom.whatsappLink} className="inline md:hidden">
-                <WhatsApp className="mr-2" size={24} />
-              </a>
-              {SPOUSES.groom.formattedPhone}
-            </p>
-          </div>
-        </div>
+          <SpouseContactCard spouse={SPOUSES.bride}/
+
+          <SpouseContactCard spouse={SPOUSES.groom}/>
 
         <p className="mt-6 text-sage-600 italic">
           {t('rsvp.dietary')}
