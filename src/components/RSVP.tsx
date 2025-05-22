@@ -22,10 +22,10 @@ const RSVP = () => {
         <h3 className="text-lg font-medium text-sage-800 mb-4">{t('rsvp.contact')}</h3>
 
         <div className="grid md:grid-cols-2 gap-4 text-sage-700">
-
           <SpouseContactCard spouse={SPOUSES.bride}/>
 
           <SpouseContactCard spouse={SPOUSES.groom}/>
+        </div>
 
         <p className="mt-6 text-sage-600 italic">
           {t('rsvp.dietary')}
