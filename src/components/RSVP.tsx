@@ -1,11 +1,8 @@
 import { Calendar, Phone } from 'lucide-react';
 import { WhatsApp } from '../icons/WhatsApp';
+import { SPOUSES } from '../config/SpousesInfo';
 
 const RSVP = () => {
-
-  const groomPhoneNumber = '+39 3406049340'
-  const bridePhoneNumber = '+39 3406049340'
-
   return (
     <div className="bg-beige-50/70 rounded-xl shadow-md p-6 md:p-8 border border-sage-200">
       <div className="max-w-xl mx-auto text-center">
@@ -22,24 +19,24 @@ const RSVP = () => {
 
           <div className="grid md:grid-cols-2 gap-4 text-sage-700">
             <div className="bg-white p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">Elena</h4>
+              <h4 className="font-semibold mb-2">{SPOUSES.bride.name}</h4>
               <p className="flex items-center justify-center">
                 <Phone className="mr-2 hidden md:inline" size={16} />
-                <a href={`https://wa.me/${groomPhoneNumber.replace(/\s/g, '')}`} className="inline md:hidden">
+                <a href={`https://wa.me/${SPOUSES.bride.whatsappLink}`} className="inline md:hidden">
                   <WhatsApp className="mr-2" size={24} />
                 </a>
-                {groomPhoneNumber}
+                {SPOUSES.bride.formattedPhone}
               </p>
             </div>
 
             <div className="bg-white p-4 rounded-lg">
-              <h4 className="font-semibold mb-2">Davide</h4>
+              <h4 className="font-semibold mb-2">{SPOUSES.groom.name}</h4>
               <p className="flex items-center justify-center">
                 <Phone className="mr-2 hidden md:inline" size={16} />
-                <a href={`https://wa.me/${groomPhoneNumber.replace(/\s/g, '')}`} className="inline md:hidden">
+                <a href={`https://wa.me/${SPOUSES.groom.whatsappLink}`} className="inline md:hidden">
                   <WhatsApp className="mr-2" size={24} />
                 </a>
-                {bridePhoneNumber}
+                {SPOUSES.groom.formattedPhone}
               </p>
             </div>
           </div>

@@ -6,6 +6,7 @@ import GiftSection from './components/GiftSection';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 import Separator from './components/Separator';
+import { SPOUSES } from './config/SpousesInfo';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,7 +34,7 @@ function App() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <p className="text-sage-600 italic mb-2 animate-fadeIn">Annunciamo il nostro matrimonio</p>
           <h1 className="font-cursive text-5xl md:text-7xl mb-6 text-sage-800 animate-fadeIn animation-delay-300">
-            Elena <span className="text-sage-600">&</span> Davide
+            {SPOUSES.bride.name} <span className="text-sage-600">&</span> {SPOUSES.groom.name}
           </h1>
 
           <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">

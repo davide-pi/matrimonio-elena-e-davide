@@ -1,5 +1,6 @@
 import { MapPin, Calendar, Clock } from 'lucide-react';
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
+import { SPOUSES } from '../config/SpousesInfo';
 
 const EventDetails: React.FC = () => {
   return (
@@ -61,7 +62,7 @@ const EventDetails: React.FC = () => {
 
       <div className="mt-8 flex justify-center">
         <AddToCalendarButton
-          name="Matrimonio Elena e Davide"
+          name={`Matrimonio ${SPOUSES.bride.name} e ${SPOUSES.groom.name}`}
           description={`Cerimonia e festeggiamenti presso l'agriturismo "La Rondanina".\n\nPer indicazioni: https://maps.app.goo.gl/dXv5HdSq86oLbJQo8`}
           startDate="2025-09-20"
           startTime="16:30"

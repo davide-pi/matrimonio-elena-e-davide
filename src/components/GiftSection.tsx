@@ -23,7 +23,7 @@ const GiftSection = () => {
           <p className="text-sage-700">
             Celebreremo questo nuovo inizio con un viaggio ricco di esperienze uniche.
           </p>
-          <p className="text-sage-700 mt-2">
+          <p className="text-sage-700 mt-4">
             Se lo desiderate, potete contribuire anche voi a regalarci ricordi indimenticabili.
           </p>
         </div>
