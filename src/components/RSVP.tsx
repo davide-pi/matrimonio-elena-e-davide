@@ -23,7 +23,7 @@ const RSVP = () => {
 
         <div className="grid md:grid-cols-2 gap-4 text-sage-700">
 
-          <SpouseContactCard spouse={SPOUSES.bride}/
+          <SpouseContactCard spouse={SPOUSES.bride}/>
 
           <SpouseContactCard spouse={SPOUSES.groom}/>
 
