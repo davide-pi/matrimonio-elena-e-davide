@@ -1,8 +1,8 @@
 import { Calendar, Phone } from 'lucide-react';
 import { useTranslation } from "react-i18next";
-import { SpouseContactCard} from './SpouseContactCard';
 import { WhatsApp } from '../icons/WhatsApp';
 import { SPOUSES } from '../config/WeddingInfo';
+import SpouseContactCard from './SpouseContactCard';
 
 const RSVP = () => {
   const { t } = useTranslation();
