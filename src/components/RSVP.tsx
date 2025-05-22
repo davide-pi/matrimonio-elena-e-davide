@@ -1,6 +1,11 @@
 import { Calendar, Phone } from 'lucide-react';
+import { WhatsApp } from '../icons/WhatsApp';
 
 const RSVP = () => {
+
+  const groomPhoneNumber = '+39 3406049340'
+  const bridePhoneNumber = '+39 3406049340'
+
   return (
     <div className="bg-beige-50/70 rounded-xl shadow-md p-6 md:p-8 border border-sage-200">
       <div className="max-w-xl mx-auto text-center">
@@ -19,16 +24,22 @@ const RSVP = () => {
             <div className="bg-white p-4 rounded-lg">
               <h4 className="font-semibold mb-2">Elena</h4>
               <p className="flex items-center justify-center">
-                <Phone className="mr-2" size={16} />
-                +39 3406049340
+                <Phone className="mr-2 hidden md:inline" size={16} />
+                <a href={`https://wa.me/${groomPhoneNumber.replace(/\s/g, '')}`} className="inline md:hidden">
+                  <WhatsApp className="mr-2" size={24} />
+                </a>
+                {groomPhoneNumber}
               </p>
             </div>
 
             <div className="bg-white p-4 rounded-lg">
               <h4 className="font-semibold mb-2">Davide</h4>
               <p className="flex items-center justify-center">
-                <Phone className="mr-2" size={16} />
-                +39 3493560581
+                <Phone className="mr-2 hidden md:inline" size={16} />
+                <a href={`https://wa.me/${groomPhoneNumber.replace(/\s/g, '')}`} className="inline md:hidden">
+                  <WhatsApp className="mr-2" size={24} />
+                </a>
+                {bridePhoneNumber}
               </p>
             </div>
           </div>
