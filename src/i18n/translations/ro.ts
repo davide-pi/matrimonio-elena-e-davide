@@ -1,7 +1,7 @@
-import { SPOUSES } from '../../config/WeddingInfo';
+import { BRIDE, GROOM } from '../../config/WeddingInfo';
 
 export default {
-  'app.title': `${SPOUSES.bride.name} & ${SPOUSES.groom.name} - Ne Căsătorim!`,
+  'app.title': `${BRIDE.name} & ${GROOM.name} - Ne Căsătorim!`,
   'app.announcement': 'Anunțăm căsătoria noastră',
   'app.date': '20 Septembrie 2025',
   'app.time': 'Ora 16:30',
@@ -12,7 +12,7 @@ export default {
   'countdown.seconds': 'Secunde',
   'details.title': 'Detaliile',
   'details.date': 'Data',
-  'details.time': 'Timpul',
+  'details.time': 'Ora',
   'details.location': 'Locația',
   'details.ceremony': 'Ceremonia la ora 16:30',
   'details.reception': 'Sărbătoarea va continua direct la agriturism',
@@ -21,7 +21,7 @@ export default {
   'details.city': 'Castelnuovo Fogliani (PC)',
   'details.viewMap': 'Vezi pe Google Maps',
   'details.addToCalendar': 'Adaugă în calendar',
-  'calendar.name': `Nunta ${SPOUSES.bride.name} și ${SPOUSES.groom.name}`,
+  'calendar.name': `Nunta ${BRIDE.name} și ${GROOM.name}`,
   'calendar.description': `Ceremonie și petrecere L'Agriturismo "La Rondanina".\n\nPentru indicații: https://maps.app.goo.gl/dXv5HdSq86oLbJQo8`,
   'calendar.location': 'Agriturismo "La Rondanina" Via Sandrone, 231, Castelnuovo Fogliani PC',
   'rsvp.title': 'RSVP',

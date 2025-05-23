@@ -1,13 +1,40 @@
-import { MapPin, Calendar, Clock } from 'lucide-react';
+import { MapPin, Calendar, Clock, CalendarPlus2 } from 'lucide-react';
 import { useTranslation } from "react-i18next";
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
-import { SPOUSES } from '../config/WeddingInfo';
+import { atcb_action } from 'add-to-calendar-button';
 
 const EventDetails: React.FC = () => {
   const { t } = useTranslation();
 
+  // Calendar config for atcb_action
+  const calendarConfig = {
+    name: t('calendar.name'),
+    description: t('calendar.description'),
+    startDate: "2025-09-20",
+    startTime: "16:30",
+    endDate: "2025-09-20",
+    endTime: "23:59",
+    location: t('calendar.location'),
+    options: ["Google", "Outlook.com", "Apple"] as ["Google", "Outlook.com", "Apple"],
+    timeZone: "Europe/Rome",
+    buttonStyle: "round" as const,
+    hideTextLabelButton: false,
+    size: "4",
+    label: t('details.addToCalendar'),
+    styleLight: "--btn-background: #ffffffbf; --btn-text: #495c41; --btn-shadow: #000000; --btn-shadow-hover: #000000; --btn-background-hover: #ffffffbf;",
+    listStyle: "modal" as const,
+    trigger: "click",
+    hideBackground: false,
+    hideCheckmark: false,
+    hideBranding: false,
+    language: "it" as const
+  };
+
+  const handleCalendarClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    atcb_action(calendarConfig, e.currentTarget);
+  };
+
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div className="space-y-2">
@@ -64,28 +91,15 @@ const EventDetails: React.FC = () => {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <AddToCalendarButton
-          name={t('calendar.name')}
-          description={t('calendar.description')}
-          startDate="2025-09-20"
-          startTime="16:30"
-          endDate="2025-09-20"
-          endTime="23:59"
-          location={t('calendar.location')}
-          options={['Google', 'Outlook.com', 'Apple']}
-          timeZone="Europe/Rome"
-          buttonStyle="round"
-          hideTextLabelButton={false}
-          size="4"
-          label={t('details.addToCalendar')}
-          styleLight="--btn-background: #e6eae2; --btn-text: #495c41; --btn-shadow: #495c41; --btn-background-hover: #d0d9c9;"
-          listStyle="modal"
-          trigger="click"
-          hideBackground={false}
-          hideCheckmark={false}
-          hideBranding={false}
-          language="it"
-        />
+        <button
+          type="button"
+          onClick={handleCalendarClick}
+          className="bg-white/75 p-4 rounded-full shadow-sm hover:shadow-lg transition-all duration-300"
+          id="custom-calendar-btn"
+        >
+        <CalendarPlus2 className="inline-block mr-2" size={20} />
+          {t('details.addToCalendar')}
+        </button>
       </div>
     </div>
   );

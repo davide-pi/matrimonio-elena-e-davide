@@ -45,6 +45,12 @@ jobs:
       - name: Build
         run: npm run-script build
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'dist'
+          path: './dist'
+
 
       - name: Deploy preview to Netlify
         if: github.ref == 'refs/heads/main'
