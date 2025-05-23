@@ -1,7 +1,7 @@
-import { SPOUSES } from '../../config/WeddingInfo';
+import { BRIDE, GROOM } from '../../config/WeddingInfo';
 
 export default {
-  'app.title': `${SPOUSES.bride.name} & ${SPOUSES.groom.name} - Ci Sposiamo!`,
+  'app.title': `${BRIDE.name} & ${GROOM.name} - Ci Sposiamo!`,
   'app.announcement': 'Annunciamo il nostro matrimonio',
   'app.date': '20 Settembre 2025',
   'app.time': 'Ore 16:30',
@@ -21,7 +21,7 @@ export default {
   'details.city': 'Castelnuovo Fogliani (PC)',
   'details.viewMap': 'Visualizza su Google Maps',
   'details.addToCalendar': 'Aggiungi al calendario',
-  'calendar.name': `Matrimonio ${SPOUSES.bride.name} e ${SPOUSES.groom.name}`,
+  'calendar.name': `Matrimonio ${BRIDE.name} e ${GROOM.name}`,
   'calendar.description': `Cerimonia e festeggiamenti presso L'Agriturismo "La Rondanina".\n\nPer indicazioni: https://maps.app.goo.gl/dXv5HdSq86oLbJQo8`,
   'calendar.location': 'Agriturismo La Rondanina, Via Sandrone, 231, Castelnuovo Fogliani PC',
   'rsvp.title': 'RSVP',

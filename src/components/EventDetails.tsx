@@ -1,14 +1,13 @@
 import { MapPin, Calendar, Clock } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
-import { SPOUSES } from '../config/WeddingInfo';
 
 const EventDetails: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">33
         <div className="space-y-6">
           <div className="space-y-2">
             <h3 className="text-xl font-semibold text-sage-800 flex items-center">

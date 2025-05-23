@@ -1,24 +1,18 @@
-class SpouseInfo {
+export class Spouse {
   readonly name: string;
   readonly phoneNumber: string;
   readonly phonePrefix: string;
+  readonly formattedPhone: string;
+  readonly whatsappLink: string;
 
   constructor(name: string, phonePrefix: string, phoneNumber: string) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.phonePrefix = phonePrefix;
-  }
-
-  get formattedPhone(): string {
-    return `${this.phonePrefix} ${this.phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')}`.trim();
-  }
-
-  get whatsappLink(): string {
-    return `https://wa.me/${this.phoneNumber}`.trim();
+    this.formattedPhone =  `${phonePrefix} ${phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3')}`.trim()
+    this.whatsappLink = `https://wa.me/${phonePrefix}${phoneNumber}`.trim()
   }
 }
 
-export const SPOUSES = {
-  bride: new SpouseInfo('Elena', '+39', '3406049340'),
-  groom: new SpouseInfo('Davide', '+39', '3493560581')
-} as const;
+export const BRIDE: Spouse = new Spouse('Elena', '+39', '3466049340')
+export const GROOM: Spouse = new Spouse('Davide', '+39', '3493560581')

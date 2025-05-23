@@ -8,7 +8,7 @@ import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 import Separator from './components/Separator';
 import LanguageSelector from './components/LanguageSelector';
-import { SPOUSES } from './config/WeddingInfo';
+import { BRIDE, GROOM } from './config/WeddingInfo';
 
 function App() {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ function App() {
             {t('app.announcement')}
           </p>
           <h1 className="font-cursive text-5xl md:text-7xl mb-6 text-sage-800 animate-fadeIn animation-delay-300">
-            {SPOUSES.bride.name} <span className="text-sage-600">&</span> {SPOUSES.groom.name}
+            {BRIDE.name} <span className="text-sage-600">&</span> {GROOM.name}
           </h1>
 
           <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">

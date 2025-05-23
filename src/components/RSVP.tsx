@@ -1,7 +1,6 @@
-import { Calendar, Phone } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { useTranslation } from "react-i18next";
-import { WhatsApp } from '../icons/WhatsApp';
-import { SPOUSES } from '../config/WeddingInfo';
+import { BRIDE, GROOM } from '../config/WeddingInfo';
 import SpouseContactCard from './SpouseContactCard';
 
 const RSVP = () => {
@@ -22,9 +21,9 @@ const RSVP = () => {
         <h3 className="text-lg font-medium text-sage-800 mb-4">{t('rsvp.contact')}</h3>
 
         <div className="grid md:grid-cols-2 gap-4 text-sage-700">
-          <SpouseContactCard {...SPOUSES.bride}/>
+          <SpouseContactCard {...BRIDE}/>
 
-          <SpouseContactCard {...SPOUSES.groom}/>
+          <SpouseContactCard {...GROOM}/>
         </div>
 
         <p className="mt-6 text-sage-600 italic">
