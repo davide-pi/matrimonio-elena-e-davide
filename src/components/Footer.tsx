@@ -6,7 +6,7 @@ const Footer = () => {
   const { t } = useTranslation()
 
   return (
-    <footer className="py-8 px-4 text-center text-sage-600 bg-white">
+    <footer className="py-8 px-4 text-center text-sage-600">
       <div className="max-w-4xl mx-auto">
         <p className="font-cursive text-2xl mb-4">{BRIDE.name} & {GROOM.name}</p>
         <p className="mb-2">{t('app.date')}</p>

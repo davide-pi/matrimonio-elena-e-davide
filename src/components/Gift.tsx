@@ -18,7 +18,7 @@ const Gift = () => {
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center">
+    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
       <div className="max-w-xl mx-auto">
         <div className="mb-8">
           <p className="text-sage-700">
@@ -30,13 +30,11 @@ const Gift = () => {
         </div>
 
         <div className="relative">
-          <div
-            className="bg-white rounded py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto"
-          >
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto shadow-sm hover:shadow-md transition-all duration-300 border border-sage-100">
             <span className="inline-block min-w-full text-center">{t('gift.iban')}</span>
             <button
               onClick={handleCopyIban}
-              className="text-sage-500 hover:text-sage-700 transition-colors bg-white px-2"
+              className="text-sage-500 hover:text-sage-700 transition-colors px-2"
               title={t('gift.iban')}
             >
               {iban}
