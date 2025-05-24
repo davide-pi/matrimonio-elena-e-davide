@@ -10,6 +10,7 @@ Questo progetto è stato creato per condividere con amici e familiari tutte le i
 ## 📸 Contenuti del sito
 
 Il sito contiene:
+
 - La data e i dettagli della cerimonia
 - Informazioni sulla location del ricevimento
 - Una sezione RSVP per confermare la presenza
@@ -44,3 +45,4 @@ npm ci
 # Avvia il server locale
 npm run-script build
 npm run-script preview`
+```

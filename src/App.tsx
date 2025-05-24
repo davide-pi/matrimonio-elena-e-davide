@@ -1,4 +1,10 @@
-import { ArrowRight, Calendar, CalendarCheck2, MessageCircle, PlaneIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Calendar,
+  CalendarCheck2,
+  MessageCircle,
+  PlaneIcon,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import CountdownTimer from "./components/CountdownTimer";
@@ -29,7 +35,9 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      setShowStickyCountdown(rect.bottom < 0 || rect.top > window.innerHeight || rect.bottom < 60);
+      setShowStickyCountdown(
+        rect.bottom < 0 || rect.top > window.innerHeight || rect.bottom < 60,
+      );
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -40,9 +48,10 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0  transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0  transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
-          backgroundImage: "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+          backgroundImage:
+            "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(255, 255, 255, 0.75)",
@@ -52,7 +61,9 @@ function App() {
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`} >
+      <div
+        className={`relative z-10 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+      >
         <LanguageSelector />
 
         {/* Hero Section */}
@@ -68,9 +79,16 @@ function App() {
             <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">
               <Calendar className="inline-block mr-2 mb-1" size={20} />
               {/* Use start date and time from config */}
-              {EVENT_DATE.toLocaleDateString("it-IT", { day: "2-digit", month: "long", year: "numeric" })}
+              {EVENT_DATE.toLocaleDateString("it-IT", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })}
               {" • "}
-              {EVENT_DATE.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" })}
+              {EVENT_DATE.toLocaleTimeString("it-IT", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </p>
 
             <div ref={countdownRef}>
@@ -101,7 +119,6 @@ function App() {
             <EventDetails />
           </div>
         </section>
-
 
         {/* RSVP Section */}
         <section id="rsvp" className="py-8 px-4 md:px-8">
@@ -135,7 +152,6 @@ function App() {
             <Gift />
           </div>
         </section>
-
 
         {/* Footer */}
         <Footer />

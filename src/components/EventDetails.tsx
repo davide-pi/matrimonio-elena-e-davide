@@ -17,7 +17,7 @@ const EventDetails: React.FC = () => {
     options: ["Google", "Outlook.com", "Apple"] as [
       "Google",
       "Outlook.com",
-      "Apple"
+      "Apple",
     ],
     timeZone: "Europe/Rome",
     buttonStyle: "round" as const,

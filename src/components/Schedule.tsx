@@ -3,10 +3,12 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { EVENT_DATE, SCHEDULE } from "../config/WeddingInfo";
 
-
 const Schedule = () => {
   const { t } = useTranslation();
-  const visibilityDate = new Date(EVENT_DATE.getTime() - SCHEDULE.visibilityBeforeEventDateInMinutes * 60 * 1000)
+  const visibilityDate = new Date(
+    EVENT_DATE.getTime() -
+      SCHEDULE.visibilityBeforeEventDateInMinutes * 60 * 1000,
+  );
   const now = useMemo(() => new Date(), []);
   const isEventDay = now >= visibilityDate;
 
@@ -15,14 +17,17 @@ const Schedule = () => {
       <div className="max-w-xl mx-auto text-left">
         {isEventDay ? (
           <ol className="relative border-l border-sage-200">
-             {SCHEDULE.items.map((item, idx) => {
+            {SCHEDULE.items.map((item, idx) => {
               // Parse the event time for today
               const [h, m] = item.time.split(":").map(Number);
               const itemDate = new Date(EVENT_DATE);
               itemDate.setHours(h, m, 0, 0);
               const isPast = now > itemDate;
               return (
-                <li key={idx} className={`relative -left-9 mb-10 ml-6 ${isPast ? "opacity-60 grayscale" : ""}`}>
+                <li
+                  key={idx}
+                  className={`relative -left-9 mb-10 ml-6 ${isPast ? "opacity-60 grayscale" : ""}`}
+                >
                   <span className="flex absolute top-1 justify-center items-center w-6 h-6 bg-sage-100 rounded-full">
                     <Sparkles className="text-sage-500" size={16} />
                   </span>

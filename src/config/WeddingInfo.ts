@@ -12,7 +12,7 @@ export class Spouse {
     this.phonePrefix = phonePrefix;
     this.formattedPhone = `${phonePrefix} ${phoneNumber.replace(
       /(\d{3})(\d{3})(\d{4})/,
-      "$1 $2 $3"
+      "$1 $2 $3",
     )}`.trim();
     this.whatsappLink = `https://wa.me/${phonePrefix}${phoneNumber}`.trim();
     this.telLink = `tel:${phonePrefix}${phoneNumber}`.trim();

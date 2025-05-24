@@ -6,17 +6,17 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
   }
 
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .font-cursive {
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
   }
 }
 
@@ -58,7 +58,8 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
