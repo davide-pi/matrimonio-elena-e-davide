@@ -1,9 +1,8 @@
 import { Phone } from 'lucide-react';
-import { WhatsApp } from '../icons/WhatsApp';
 import { Spouse } from '../config/WeddingInfo';
+import { WhatsApp } from '../icons/WhatsApp';
 
 const SpouseContactCard = (spouse: Spouse) => {
-  console.log(spouse)
   return (
     <div className="bg-white/75 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
       <h4 className="font-semibold mb-2">{spouse.name}</h4>
