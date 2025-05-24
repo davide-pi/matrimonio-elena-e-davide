@@ -32,7 +32,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
         return {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / (1000 * 60)) % 60),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
         };
       }
@@ -58,15 +58,11 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
   return (
     <div
-      className={`flex justify-center items-center space-x-2 md:space-x-4 ${size === "sm" ? "scale-75" : size === "lg" ? "scale-110" : ""}`}
+      className={`flex justify-center items-center space-x-2 md:space-x-4 transition-transform duration-300 ${size === "sm" ? "scale-75" : size === "lg" ? "scale-110" : ""}`}
     >
       <CountdownItem value={timeLeft.days} label="countdown.days" size={size} />
       <CountdownDivider />
-      <CountdownItem
-        value={timeLeft.hours}
-        label="countdown.hours"
-        size={size}
-      />
+      <CountdownItem value={timeLeft.hours} label="countdown.hours" size={size} />
       <CountdownDivider />
       <CountdownItem
         value={timeLeft.minutes}

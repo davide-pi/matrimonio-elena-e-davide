@@ -22,7 +22,7 @@ function App() {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const countdownRef = useRef<HTMLDivElement>(null);
-  const [showStickyCountdown, setShowStickyCountdown] = useState(false);
+  const [countdownSize, setCountdownSize] = useState<"sm" | "md">("md");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,12 +35,13 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      setShowStickyCountdown(
-        rect.bottom < 0 || rect.top > window.innerHeight || rect.bottom < 60,
-      );
+      const threshold = window.innerHeight * 0.4; // 40% of viewport height
+      const shouldShrink = rect.top < threshold;
+      setCountdownSize(shouldShrink ? "sm" : "md");
     };
+
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -48,7 +49,7 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0  transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           backgroundImage:
             "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
@@ -78,7 +79,6 @@ function App() {
 
             <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">
               <Calendar className="inline-block mr-2 mb-1" size={20} />
-              {/* Use start date and time from config */}
               {EVENT_DATE.toLocaleDateString("it-IT", {
                 day: "2-digit",
                 month: "long",
@@ -91,8 +91,8 @@ function App() {
               })}
             </p>
 
-            <div ref={countdownRef}>
-              <CountdownTimer targetDate={EVENT_DATE} size="md" />
+            <div ref={countdownRef} className="sticky top-8 z-50 transition-all duration-300">
+              <CountdownTimer targetDate={EVENT_DATE} size={countdownSize} />
             </div>
 
             <div className="mt-16 animate-fadeIn animation-delay-1000">
@@ -106,9 +106,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* Sticky Countdown */}
-        {showStickyCountdown && <StickyCountdown />}
 
         {/* Details Section */}
         <section id="details" className="py-8 px-4 md:px-8">
@@ -155,19 +152,6 @@ function App() {
 
         {/* Footer */}
         <Footer />
-      </div>
-    </div>
-  );
-}
-
-function StickyCountdown() {
-  return (
-    <div
-      className="fixed left-1/2 top-8 -translate-x-1/2 z-50 flex justify-center items-center w-full pointer-events-none"
-      style={{ minWidth: 0 }}
-    >
-      <div className="pointer-events-auto">
-        <CountdownTimer targetDate={EVENT_DATE} size="sm" />
       </div>
     </div>
   );
