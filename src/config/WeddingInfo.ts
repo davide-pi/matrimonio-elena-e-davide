@@ -4,6 +4,7 @@ export class Spouse {
   readonly phonePrefix: string;
   readonly formattedPhone: string;
   readonly whatsappLink: string;
+  readonly telLink: string;
 
   constructor(name: string, phonePrefix: string, phoneNumber: string) {
     this.name = name;
@@ -14,6 +15,7 @@ export class Spouse {
       "$1 $2 $3"
     )}`.trim();
     this.whatsappLink = `https://wa.me/${phonePrefix}${phoneNumber}`.trim();
+    this.telLink = `tel:${phonePrefix}${phoneNumber}`.trim();
   }
 }
 
