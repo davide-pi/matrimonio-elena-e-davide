@@ -23,6 +23,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const countdownRef = useRef<HTMLDivElement>(null);
   const [countdownSize, setCountdownSize] = useState<"sm" | "md">("md");
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -35,9 +36,9 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      const threshold = window.innerHeight * 0.4; // 40% of viewport height
-      const shouldShrink = rect.top < threshold;
+      const shouldShrink = rect.top <= 0;
       setCountdownSize(shouldShrink ? "sm" : "md");
+      setIsSticky(shouldShrink);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -91,7 +92,14 @@ function App() {
               })}
             </p>
 
-            <div ref={countdownRef} className="sticky top-8 z-50 transition-all duration-300">
+            <div 
+              ref={countdownRef} 
+              className={`transition-all duration-300 ${
+                isSticky 
+                  ? "fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md backdrop-blur-sm py-2" 
+                  : ""
+              }`}
+            >
               <CountdownTimer targetDate={EVENT_DATE} size={countdownSize} />
             </div>
 
