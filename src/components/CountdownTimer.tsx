@@ -58,7 +58,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
   return (
     <div
-      className={`flex justify-center items-center space-x-2 md:space-x-4 transition-transform duration-300 ${size === "sm" ? "scale-75" : size === "lg" ? "scale-110" : ""}`}
+      className={`flex justify-center items-center space-x-2 md:space-x-4 transition-all duration-500 ease-in-out transform ${size === "sm" ? "scale-75" : size === "lg" ? "scale-110" : "scale-100"}`}
     >
       <CountdownItem value={timeLeft.days} label="countdown.days" size={size} />
       <CountdownDivider />
@@ -108,17 +108,17 @@ const CountdownItem: React.FC<{
   return (
     <div className="flex flex-col items-center animate-pulse">
       <div
-        className={`bg-white/80 backdrop-blur-sm rounded-lg shadow-md ${boxSize} flex items-center justify-center border border-sage-200`}
+        className={`bg-white/80 backdrop-blur-sm rounded-lg shadow-md ${boxSize} flex items-center justify-center border border-sage-200 transition-all duration-500 ease-in-out transform`}
       >
         <span className={`${textSize} font-bold text-sage-800`}>{value}</span>
       </div>
-      <span className={`${labelSize} mt-2 text-sage-700`}>{t(label)}</span>
+      <span className={`${labelSize} mt-2 text-sage-700 transition-all duration-500 ease-in-out`}>{t(label)}</span>
     </div>
   );
 };
 
 const CountdownDivider: React.FC = () => {
-  return <div className="text-xl md:text-3xl font-bold text-sage-600">:</div>;
+  return <div className="text-xl md:text-3xl font-bold text-sage-600 transition-all duration-500 ease-in-out">:</div>;
 };
 
 export default CountdownTimer;

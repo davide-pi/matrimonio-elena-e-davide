@@ -103,10 +103,10 @@ function App() {
 
             <div 
               ref={countdownRef} 
-              className={`transition-all duration-300 ${
+              className={`transition-all duration-500 ease-in-out transform ${
                 isSticky 
-                  ? "fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md backdrop-blur-sm py-2" 
-                  : ""
+                  ? "fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md backdrop-blur-sm py-2 translate-y-0" 
+                  : "translate-y-0"
               }`}
             >
               <CountdownTimer targetDate={EVENT_DATE} size={countdownSize} />
@@ -173,5 +173,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
