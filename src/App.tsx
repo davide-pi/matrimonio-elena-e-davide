@@ -37,7 +37,7 @@ function App() {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
       const parentRect = countdownRef.current.parentElement?.getBoundingClientRect();
-      
+
       // Check if the countdown's parent container is fully visible
       if (parentRect && parentRect.top > 0 && parentRect.bottom < window.innerHeight) {
         setCountdownSize("md");
@@ -101,12 +101,12 @@ function App() {
               })}
             </p>
 
-            <div 
-              ref={countdownRef} 
+            <div
+              ref={countdownRef}
               className={`transition-all duration-500 ease-in-out transform ${
-                isSticky 
-                  ? "fixed top-0 left-0 right-0 z-50 bg-white/95 shadow-md backdrop-blur-sm py-2 translate-y-0" 
-                  : "translate-y-0"
+                isSticky
+                  ? "fixed top-0 left-0 right-0 z-50 py-2"
+                  : ""
               }`}
             >
               <CountdownTimer targetDate={EVENT_DATE} size={countdownSize} />
