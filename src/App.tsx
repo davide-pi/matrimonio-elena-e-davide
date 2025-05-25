@@ -36,9 +36,18 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      const shouldShrink = rect.top <= 0;
-      setCountdownSize(shouldShrink ? "sm" : "md");
-      setIsSticky(shouldShrink);
+      const parentRect = countdownRef.current.parentElement?.getBoundingClientRect();
+      
+      // Check if the countdown's parent container is fully visible
+      if (parentRect && parentRect.top > 0 && parentRect.bottom < window.innerHeight) {
+        setCountdownSize("md");
+        setIsSticky(false);
+      } else {
+        // Only make sticky if scrolling down past the countdown
+        const shouldShrink = rect.top <= 0 && window.scrollY > (parentRect?.top || 0);
+        setCountdownSize(shouldShrink ? "sm" : "md");
+        setIsSticky(shouldShrink);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
