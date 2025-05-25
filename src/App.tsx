@@ -35,9 +35,8 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      setShowStickyCountdown(
-        rect.bottom < 0 || rect.top > window.innerHeight || rect.bottom < 60,
-      );
+      const percentageVisible = Math.max(0,Math.min(1,(rect.bottom - Math.max(0, rect.top)) / rect.height));
+      setShowStickyCountdown(percentageVisible < 0.9);
     };
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -48,7 +47,7 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0  transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           backgroundImage:
             "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
@@ -91,8 +90,30 @@ function App() {
               })}
             </p>
 
-            <div ref={countdownRef}>
+            {/* Countdown Timer */}
+            <div
+              ref={countdownRef}
+              className={`transition-all duration-500 ease-in-out transform ${
+                showStickyCountdown
+                  ? "opacity-0"
+                  : "opacity-100"
+              }`}
+            >
               <CountdownTimer targetDate={EVENT_DATE} size="md" />
+            </div>
+
+            {/* Sticky Countdown Timer */}
+            <div
+              className={`fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-500 ease-in-out transform ${
+                showStickyCountdown
+                  ? "opacity-100"
+                  : "opacity-0"
+              }`}
+              style={{ minWidth: 0 }}
+            >
+              <div className="pointer-events-auto">
+                <CountdownTimer targetDate={EVENT_DATE} size="sm" />
+              </div>
             </div>
 
             <div className="mt-16 animate-fadeIn animation-delay-1000">
@@ -106,9 +127,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* Sticky Countdown */}
-        {showStickyCountdown && <StickyCountdown />}
 
         {/* Details Section */}
         <section id="details" className="py-8 px-4 md:px-8">
@@ -155,19 +173,6 @@ function App() {
 
         {/* Footer */}
         <Footer />
-      </div>
-    </div>
-  );
-}
-
-function StickyCountdown() {
-  return (
-    <div
-      className="fixed left-1/2 top-8 -translate-x-1/2 z-50 flex justify-center items-center w-full pointer-events-none"
-      style={{ minWidth: 0 }}
-    >
-      <div className="pointer-events-auto">
-        <CountdownTimer targetDate={EVENT_DATE} size="sm" />
       </div>
     </div>
   );
