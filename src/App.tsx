@@ -22,8 +22,7 @@ function App() {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const countdownRef = useRef<HTMLDivElement>(null);
-  const [countdownSize, setCountdownSize] = useState<"sm" | "md">("md");
-  const [isSticky, setIsSticky] = useState(false);
+  const [showStickyCountdown, setShowStickyCountdown] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,22 +35,11 @@ function App() {
     const handleScroll = () => {
       if (!countdownRef.current) return;
       const rect = countdownRef.current.getBoundingClientRect();
-      const parentRect = countdownRef.current.parentElement?.getBoundingClientRect();
-
-      // Check if the countdown's parent container is fully visible
-      if (parentRect && parentRect.top > 0 && parentRect.bottom < window.innerHeight) {
-        setCountdownSize("md");
-        setIsSticky(false);
-      } else {
-        // Only make sticky if scrolling down past the countdown
-        const shouldShrink = rect.top <= 0 && window.scrollY > (parentRect?.top || 0);
-        setCountdownSize(shouldShrink ? "sm" : "md");
-        setIsSticky(shouldShrink);
-      }
+      const percentageVisible = Math.max(0,Math.min(1,(rect.bottom - Math.max(0, rect.top)) / rect.height));
+      setShowStickyCountdown(percentageVisible < 0.9);
     };
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -89,6 +77,7 @@ function App() {
 
             <p className="text-xl md:text-2xl mb-12 animate-fadeIn animation-delay-600">
               <Calendar className="inline-block mr-2 mb-1" size={20} />
+              {/* Use start date and time from config */}
               {EVENT_DATE.toLocaleDateString("it-IT", {
                 day: "2-digit",
                 month: "long",
@@ -101,15 +90,30 @@ function App() {
               })}
             </p>
 
+            {/* Countdown Timer */}
             <div
               ref={countdownRef}
               className={`transition-all duration-500 ease-in-out transform ${
-                isSticky
-                  ? "fixed top-0 left-0 right-0 z-50 py-2"
-                  : ""
+                showStickyCountdown
+                  ? "opacity-0"
+                  : "opacity-100"
               }`}
             >
-              <CountdownTimer targetDate={EVENT_DATE} size={countdownSize} />
+              <CountdownTimer targetDate={EVENT_DATE} size="md" />
+            </div>
+
+            {/* Sticky Countdown Timer */}
+            <div
+              className={`fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-500 ease-in-out transform ${
+                showStickyCountdown
+                  ? "opacity-100"
+                  : "opacity-0"
+              }`}
+              style={{ minWidth: 0 }}
+            >
+              <div className="pointer-events-auto">
+                <CountdownTimer targetDate={EVENT_DATE} size="sm" />
+              </div>
             </div>
 
             <div className="mt-16 animate-fadeIn animation-delay-1000">
@@ -174,4 +178,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
