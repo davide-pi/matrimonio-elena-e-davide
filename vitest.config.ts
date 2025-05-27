@@ -9,8 +9,17 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     include: ["**/*.test.{ts,tsx}"],
     coverage: {
-      reporter: ["text", "json", "html", "lcov"],
-      exclude: ["node_modules/", "src/test/setup.ts"],
+      reporter: ["html", "lcov"],
+      exclude: [
+        "node_modules/",
+        "dist/",
+        "src/test/",
+        "eslint.config.js",
+        "postcss.config.js",
+        "tailwind.config.js",
+        "vite.config.ts",
+        "vitest.config.ts",
+      ],
     },
   },
 });
