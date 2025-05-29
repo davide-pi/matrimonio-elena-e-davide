@@ -50,10 +50,10 @@ function App() {
         className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+            "url('/background.jpeg')",
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(255, 255, 255, 0.75)",
+          backgroundColor: "rgba(255, 255, 255, 0.75)"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80"></div>
