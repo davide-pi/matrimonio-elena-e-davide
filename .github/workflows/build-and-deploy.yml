@@ -36,11 +36,20 @@ jobs:
           node-version: "22.x"
           cache: "npm"
 
-      - name: Set version
-        run: npm version ${{ steps.gitversion.outputs.fullSemVer }} --no-git-tag-version
-
       - name: Install dependencies
         run: npm ci
+
+      - name: Run test coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: "coverage-report"
+          path: "coverage/"
+
+      - name: Set version
+        run: "npm version ${{ steps.gitversion.outputs.fullSemVer }} --no-git-tag-version"
 
       - name: Build
         run: npm run-script build
@@ -59,9 +68,9 @@ jobs:
           production-deploy: false
           deploy-message: "Deploy preview from GitHub Actions (v${{ steps.gitversion.outputs.fullSemVer }})"
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+          NETLIFY_AUTH_TOKEN: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          NETLIFY_SITE_ID: "${{ secrets.NETLIFY_SITE_ID }}"
+        timeout-minutes: 5
 
       - name: Deploy to Netlify
         if: startsWith(github.ref, 'refs/tags/')
@@ -71,6 +80,6 @@ jobs:
           production-deploy: true
           deploy-message: "Deploy from GitHub Actions (v${{ steps.gitversion.outputs.fullSemVer }})"
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+          NETLIFY_AUTH_TOKEN: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          NETLIFY_SITE_ID: "${{ secrets.NETLIFY_SITE_ID }}"
+        timeout-minutes: 5

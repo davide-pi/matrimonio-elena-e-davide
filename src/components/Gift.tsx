@@ -33,7 +33,6 @@ const Gift = () => {
           <button
             onClick={handleCopyIban}
             className="text-sage-500 hover:text-sage-700 transition-colors px-2"
-            title={t("gift.iban")}
           >
             {iban}
           </button>
