@@ -1,6 +1,6 @@
-import { MapPin, Calendar, Clock, CalendarPlus2 } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { atcb_action } from "add-to-calendar-button";
+import { Calendar, CalendarPlus2, Clock, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const EventDetails: React.FC = () => {
   const { t } = useTranslation();
@@ -39,11 +39,10 @@ const EventDetails: React.FC = () => {
   };
 
   return (
-    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
-      <div className="grid md:grid-cols-2 gap-8">
+    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg text-center transition-shadow duration-300">
         <div className="space-y-6">
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <Calendar className="inline-block mr-2" size={20} />
               {t("details.date")}
             </h3>
@@ -51,22 +50,26 @@ const EventDetails: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <Clock className="inline-block mr-2" size={20} />
               {t("details.time")}
             </h3>
-            <p className="text-sage-700">{t("details.ceremony")}</p>
-            <p className="text-sage-700">{t("details.reception")}</p>
+            <div className="text-sage-700">
+              <p>{t("details.ceremony.line1")}</p>
+              <p>{t("details.ceremony.line2")}</p>
+            </div>
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <MapPin className="inline-block mr-2" size={20} />
               {t("details.location")}
             </h3>
-            <p className="text-sage-700">{t("details.venue")}</p>
-            <p className="text-sage-700">{t("details.address")}</p>
-            <p className="text-sage-700">{t("details.city")}</p>
+            <div className="text-sage-700">
+              <p>{t("details.venue")}</p>
+              <p>{t("details.address")}</p>
+              <p>{t("details.city")}</p>
+            </div>
             <a
               href="https://maps.app.goo.gl/dXv5HdSq86oLbJQo8"
               target="_blank"
@@ -89,20 +92,6 @@ const EventDetails: React.FC = () => {
                 />
               </svg>
             </a>
-          </div>
-        </div>
-
-        <div className="rounded-lg overflow-hidden shadow-md h-64 md:h-full">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2827.465054025074!2d9.965048812450966!3d44.87318407094978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4780f53c9fc52ebb%3A0x5cc2ba644256f74e!2sLa%20Rondanina!5e0!3m2!1sen!2sit!4v1747834896773!5m2!1sen!2sit"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title={t("details.venue")}
-          ></iframe>
         </div>
       </div>
 

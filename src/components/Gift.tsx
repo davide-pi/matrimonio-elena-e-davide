@@ -20,9 +20,9 @@ const Gift = () => {
 
   return (
     <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
-      <div className="mb-8">
-        <p className="text-sage-700">{t("gift.description")}</p>
-        <p className="text-sage-700 mt-4">{t("gift.contribution")}</p>
+      <div className="text-sage-700  mb-8">
+        <p>{t("gift.description")}</p>
+        <p className="mt-2">{t("gift.contribution")}</p>
       </div>
 
       <div className="relative">

@@ -5,7 +5,8 @@ import { BRIDE, GROOM } from '../config/WeddingInfo';
 
 // Mock the translations
 const mockTranslation: Record<string, string> = {
-  'rsvp.deadline': 'È gradita gentile conferma entro il',
+  'rsvp.deadline.line1': 'Saremo felici di condividere questo giorno speciale con voi.',
+  'rsvp.deadline.line2': 'Vi preghiamo di confermare la vostra partecipazione entro il',
   'rsvp.deadlineDate': '31 Agosto 2025',
   'rsvp.contact': 'Contattateci per tutti i dettagli',
   'rsvp.dietary': 'Nel confermare la vostra presenza, vi preghiamo di comunicarci eventuali allergie o intolleranze alimentari.'
@@ -33,7 +34,8 @@ describe('RSVP Component', () => {
     render(<RSVP />);
 
     // Check if the component renders the main texts
-    expect(screen.getByText('È gradita gentile conferma entro il')).toBeInTheDocument();
+    expect(screen.getByText('Saremo felici di condividere questo giorno speciale con voi.')).toBeInTheDocument();
+    expect(screen.getByText('Vi preghiamo di confermare la vostra partecipazione entro il')).toBeInTheDocument();
     expect(screen.getByText('31 Agosto 2025')).toBeInTheDocument();
     expect(screen.getByText('Contattateci per tutti i dettagli')).toBeInTheDocument();
     expect(screen.getByText('Nel confermare la vostra presenza, vi preghiamo di comunicarci eventuali allergie o intolleranze alimentari.')).toBeInTheDocument();

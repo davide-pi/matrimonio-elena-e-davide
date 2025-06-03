@@ -1,6 +1,6 @@
 import { Heart } from "lucide-react";
-import { BRIDE, GROOM } from "../config/WeddingInfo";
 import { useTranslation } from "react-i18next";
+import { BRIDE, GROOM } from "../config/WeddingInfo";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="py-8 px-4 text-center text-sage-600">
       <div className="max-w-4xl mx-auto">
-        <p className="font-cursive text-2xl mb-4">
+        <p className="font-cursive text-2xl mb-2">
           {BRIDE.name} & {GROOM.name}
         </p>
         <p className="mb-2">{t("app.date")}</p>

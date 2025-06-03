@@ -12,11 +12,11 @@ const mockTranslation: Record<string, string> = {
   'details.date': 'Data',
   'app.date': '20 Settembre 2025',
   'details.time': 'Orario',
-  'details.ceremony': 'Cerimonia alle ore 16:30',
-  'details.reception': 'I festeggiamenti proseguiranno direttamente in agriturismo',
+  'details.ceremony.line1': 'Cerimonia e ricevimento',
+  'details.ceremony.line2': 'avranno luogo alle ore 16:30',
   'details.location': 'Luogo',
   'details.venue': 'Agriturismo "La Rondanina"',
-  'details.address': 'Via Sandrone, 231',
+  'details.address': 'Via Sandrone 231',
   'details.city': 'Castelnuovo Fogliani (PC)',
   'details.viewMap': 'Visualizza su Google Maps',
   'details.addToCalendar': 'Aggiungi al calendario',
@@ -50,8 +50,8 @@ describe('EventDetails Component', () => {
 
     // Check if time section is rendered
     expect(screen.getByText('Orario')).toBeInTheDocument();
-    expect(screen.getByText('Cerimonia alle ore 16:30')).toBeInTheDocument();
-    expect(screen.getByText('I festeggiamenti proseguiranno direttamente in agriturismo')).toBeInTheDocument();
+    expect(screen.getByText('Cerimonia e ricevimento')).toBeInTheDocument();
+    expect(screen.getByText('avranno luogo alle ore 16:30')).toBeInTheDocument();
   });
 
   it('renders location information correctly', () => {
@@ -60,7 +60,7 @@ describe('EventDetails Component', () => {
     // Check if location section is rendered
     expect(screen.getByText('Luogo')).toBeInTheDocument();
     expect(screen.getByText('Agriturismo "La Rondanina"')).toBeInTheDocument();
-    expect(screen.getByText('Via Sandrone, 231')).toBeInTheDocument();
+    expect(screen.getByText('Via Sandrone 231')).toBeInTheDocument();
     expect(screen.getByText('Castelnuovo Fogliani (PC)')).toBeInTheDocument();
   });
 
@@ -75,22 +75,15 @@ describe('EventDetails Component', () => {
     expect(mapLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('renders Google Maps iframe correctly', () => {
-    render(<EventDetails />);
-
-    // Check if the Google Maps iframe is rendered
-    const iframe = screen.getByTitle('Agriturismo "La Rondanina"');
-    expect(iframe).toBeInTheDocument();
-    expect(iframe).toHaveAttribute('src', expect.stringContaining('google.com/maps/embed'));
-  });
-
   it('renders Add to Calendar button', () => {
     render(<EventDetails />);
 
     // Check if the Add to Calendar button is rendered
     const calendarButton = screen.getByText('Aggiungi al calendario');
     expect(calendarButton).toBeInTheDocument();
-  });  it('renders a button that would call calendar action', () => {
+  });
+
+  it('renders a button that would call calendar action', () => {
     render(<EventDetails />);
 
     // Just verify the button is there with the correct text
@@ -116,10 +109,9 @@ describe('EventDetails Component', () => {
   it('renders component with correct layout structure', () => {
     const { container } = render(<EventDetails />);
 
-    // Check for two-column grid on larger screens
-    const gridContainer = container.querySelector('.grid');
-    expect(gridContainer).toBeInTheDocument();
-    expect(gridContainer).toHaveClass('md:grid-cols-2');
+    // Check for vertical spacing container
+    const spacingContainer = container.querySelector('.space-y-6');
+    expect(spacingContainer).toBeInTheDocument();
 
     // Check for the main container with proper styling
     const mainContainer = container.firstChild;

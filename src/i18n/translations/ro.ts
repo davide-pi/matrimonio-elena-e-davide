@@ -2,7 +2,7 @@ import { BRIDE, GROOM } from "../../config/WeddingInfo";
 
 export default {
   "app.title": `${BRIDE.name} & ${GROOM.name} - Ne Căsătorim!`,
-  "app.announcement": "Anunțăm căsătoria noastră",
+  "app.announcement": "Anunțăm cu bucurie că ne căsătorim",
   "app.date": "20 Septembrie 2025",
   "app.time": "Ora 16:30",
   "app.discoverMore": "Află mai multe",
@@ -14,10 +14,10 @@ export default {
   "details.date": "Data",
   "details.time": "Ora",
   "details.location": "Locația",
-  "details.ceremony": "Ceremonia la ora 16:30",
-  "details.reception": "Sărbătoarea va continua direct la agriturism",
+  "details.ceremony.line1": "Ceremonia și recepția",
+  "details.ceremony.line2": "vor începe la ora 16.30",
   "details.venue": 'Agriturismo "La Rondanina"',
-  "details.address": "Via Sandrone, 231",
+  "details.address": "Via Sandrone 231",
   "details.city": "Castelnuovo Fogliani (PC)",
   "details.viewMap": "Vezi pe Google Maps",
   "details.addToCalendar": "Adaugă în calendar",
@@ -26,7 +26,9 @@ export default {
   "calendar.location":
     'Agriturismo "La Rondanina" Via Sandrone, 231, Castelnuovo Fogliani PC',
   "rsvp.title": "RSVP",
-  "rsvp.deadline": "Vă rugăm să confirmați prezența până la",
+  "rsvp.deadline.line1":
+    "Ne vom bucura să împărtășim această zi specială cu voi.",
+  "rsvp.deadline.line2": "Vă rugăm să confirmați participarea până la data de",
   "rsvp.deadlineDate": "31 August 2025",
   "rsvp.contact": "Contactați-ne pentru toate detaliile",
   "rsvp.dietary":
@@ -39,19 +41,4 @@ export default {
   "gift.iban": "IBAN",
   "gift.copied": "IBAN copiat în clipboard!",
   "footer.date": "20 Septembrie 2025",
-  "schedule.title": "Programul zilei",
-  "schedule.funnyPhrase.firstLine":
-    "Programul zilei este top secret… va fi dezvăluit doar în ziua evenimentului!",
-  "schedule.funnyPhrase.secondLine":
-    "Un pic de suspans face totul mai romantic, nu?",
-  "schedule.1630": "Începutul ceremoniei",
-  "schedule.1630.desc": "Ceremonia începe la agriturism.",
-  "schedule.1730": "Aperitiv",
-  "schedule.1730.desc": "Bufet de aperitiv în grădină.",
-  "schedule.1900": "Cina",
-  "schedule.1900.desc": "Cină convivială cu preparate tradiționale.",
-  "schedule.2200": "Tăierea tortului",
-  "schedule.2200.desc": "Cel mai dulce moment al serii!",
-  "schedule.2230": "Petrecere & Dans",
-  "schedule.2230.desc": "Muzică, dans și distracție până târziu.",
 };
