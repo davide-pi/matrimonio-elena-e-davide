@@ -22,10 +22,6 @@ vi.mock('../components/RSVP', () => ({
   default: () => <div data-testid="rsvp">RSVP Component</div>
 }));
 
-vi.mock('../components/Schedule', () => ({
-  default: () => <div data-testid="schedule">Schedule Component</div>
-}));
-
 vi.mock('../components/Gift', () => ({
   default: () => <div data-testid="gift">Gift Component</div>
 }));
@@ -41,7 +37,6 @@ const mockTranslation: Record<string, string> = {
   'app.discoverMore': 'Discover More',
   'details.title': 'Event Details',
   'rsvp.title': 'RSVP',
-  'schedule.title': 'Schedule',
   'gift.title': 'Registry'
 };
 
@@ -119,7 +114,6 @@ describe('App Component', () => {
     expect(screen.getByTestId('countdown-sm')).toBeInTheDocument();
     expect(screen.getByTestId('event-details')).toBeInTheDocument();
     expect(screen.getByTestId('rsvp')).toBeInTheDocument();
-    expect(screen.getByTestId('schedule')).toBeInTheDocument();
     expect(screen.getByTestId('gift')).toBeInTheDocument();
     expect(screen.getByTestId('footer')).toBeInTheDocument();
   });
@@ -223,7 +217,7 @@ describe('App Component', () => {
     render(<App />);
 
     // Before timer completes, content should be hidden
-    const contentContainer = document.querySelector('.relative.z-10') as HTMLElement;
+    const contentContainer = document.querySelector('.relative.z-\\[10\\]') as HTMLElement;
     expect(contentContainer).toHaveClass('opacity-0');
 
     const backgroundContainer = document.querySelector('.fixed.inset-0.bg-cover') as HTMLElement;
@@ -268,7 +262,6 @@ describe('App Component', () => {
     // Check all section headings
     expect(screen.getByText('Event Details')).toBeInTheDocument();
     expect(screen.getByText('RSVP')).toBeInTheDocument();
-    expect(screen.getByText('Schedule')).toBeInTheDocument();
     expect(screen.getByText('Registry')).toBeInTheDocument();
   });
     it('displays icons in the correct sections', () => {
@@ -284,7 +277,6 @@ describe('App Component', () => {
 
     // Check that the section titles that would have icons are present
     expect(screen.getByText('RSVP')).toBeInTheDocument();
-    expect(screen.getByText('Schedule')).toBeInTheDocument();
     expect(screen.getByText('Registry')).toBeInTheDocument();
   });
 

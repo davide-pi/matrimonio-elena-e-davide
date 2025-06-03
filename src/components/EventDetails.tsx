@@ -1,6 +1,6 @@
-import { MapPin, Calendar, Clock, CalendarPlus2 } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { atcb_action } from "add-to-calendar-button";
+import { Calendar, CalendarPlus2, Clock, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const EventDetails: React.FC = () => {
   const { t } = useTranslation();
@@ -40,10 +40,10 @@ const EventDetails: React.FC = () => {
 
   return (
     <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8 text-center">
         <div className="space-y-6">
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <Calendar className="inline-block mr-2" size={20} />
               {t("details.date")}
             </h3>
@@ -51,16 +51,16 @@ const EventDetails: React.FC = () => {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <Clock className="inline-block mr-2" size={20} />
               {t("details.time")}
             </h3>
-            <p className="text-sage-700">{t("details.ceremony")}</p>
-            <p className="text-sage-700">{t("details.reception")}</p>
+            <p className="text-sage-700">{t("details.ceremony.line1")}</p>
+            <p className="text-sage-700">{t("details.ceremony.line2")}</p>
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-sage-800 flex items-center">
+            <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
               <MapPin className="inline-block mr-2" size={20} />
               {t("details.location")}
             </h3>

@@ -45,8 +45,7 @@ export default {
         },
       },
       backgroundImage: {
-        mountains:
-          "url('https://images.pexels.com/photos/4064432/pexels-photo-4064432.jpeg')",
+        mountains: "url('/background.jpeg')",
       },
       typography: {
         DEFAULT: {

@@ -15,7 +15,7 @@ const LanguageSelector: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-4 right-4 z-[60]">
       <div className="relative group">
         <button
           className="bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md hover:bg-white/90 transition-colors duration-300"

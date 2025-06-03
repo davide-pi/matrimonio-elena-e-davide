@@ -12,11 +12,11 @@ const mockTranslation: Record<string, string> = {
   'details.date': 'Data',
   'app.date': '20 Settembre 2025',
   'details.time': 'Orario',
-  'details.ceremony': 'Cerimonia alle ore 16:30',
-  'details.reception': 'I festeggiamenti proseguiranno direttamente in agriturismo',
+  'details.ceremony.line1': 'Cerimonia e ricevimento',
+  'details.ceremony.line2': 'avranno luogo alle ore 16:30',
   'details.location': 'Luogo',
   'details.venue': 'Agriturismo "La Rondanina"',
-  'details.address': 'Via Sandrone, 231',
+  'details.address': 'Via Sandrone 231',
   'details.city': 'Castelnuovo Fogliani (PC)',
   'details.viewMap': 'Visualizza su Google Maps',
   'details.addToCalendar': 'Aggiungi al calendario',
@@ -50,8 +50,8 @@ describe('EventDetails Component', () => {
 
     // Check if time section is rendered
     expect(screen.getByText('Orario')).toBeInTheDocument();
-    expect(screen.getByText('Cerimonia alle ore 16:30')).toBeInTheDocument();
-    expect(screen.getByText('I festeggiamenti proseguiranno direttamente in agriturismo')).toBeInTheDocument();
+    expect(screen.getByText('Cerimonia e ricevimento')).toBeInTheDocument();
+    expect(screen.getByText('avranno luogo alle ore 16:30')).toBeInTheDocument();
   });
 
   it('renders location information correctly', () => {

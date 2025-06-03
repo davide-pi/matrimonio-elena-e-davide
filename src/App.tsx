@@ -1,7 +1,6 @@
 import {
   ArrowRight,
   Calendar,
-  CalendarCheck2,
   MessageCircle,
   PlaneIcon,
 } from "lucide-react";
@@ -13,7 +12,6 @@ import Footer from "./components/Footer";
 import Gift from "./components/Gift";
 import LanguageSelector from "./components/LanguageSelector";
 import RSVP from "./components/RSVP";
-import Schedule from "./components/Schedule";
 import { BRIDE, EVENT_DATE, GROOM } from "./config/WeddingInfo";
 
 function App() {
@@ -47,7 +45,7 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-[0] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           backgroundImage:
             "url('/background.jpeg')",
@@ -61,7 +59,7 @@ function App() {
 
       {/* Content */}
       <div
-        className={`relative z-10 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`relative z-[10] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
       >
         <LanguageSelector />
 
@@ -104,7 +102,7 @@ function App() {
 
             {/* Sticky Countdown Timer */}
             <div
-              className={`fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-500 ease-in-out transform ${
+              className={`fixed top-0 left-0 right-0 z-[50] py-2 pointer-events-none transition-all duration-500 ease-in-out transform ${
                 showStickyCountdown
                   ? "opacity-100"
                   : "opacity-0"
@@ -131,7 +129,7 @@ function App() {
         {/* Details Section */}
         <section id="details" className="py-8 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
+            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-600 mb-12">
               {t("details.title")}
             </h2>
             <EventDetails />
@@ -141,7 +139,7 @@ function App() {
         {/* RSVP Section */}
         <section id="rsvp" className="py-8 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
+            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-600 mb-12">
               <MessageCircle className="inline-block mr-2 mb-1" size={28} />
               {t("rsvp.title")}
             </h2>
@@ -149,21 +147,10 @@ function App() {
           </div>
         </section>
 
-        {/* Schedule Section */}
-        <section id="details" className="py-8 px-4 md:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-10 flex items-center justify-center gap-2">
-              <CalendarCheck2 className="inline-block mb-1" size={28} />
-              {t("schedule.title")}
-            </h2>
-            <Schedule />
-          </div>
-        </section>
-
         {/* Gift Section */}
         <section id="gift" className="py-8 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-800 mb-12">
+            <h2 className="text-3xl md:text-4xl text-center font-cursive text-sage-600 mb-12">
               <PlaneIcon className="inline-block mr-2 mb-1" size={28} />
               {t("gift.title")}
             </h2>
