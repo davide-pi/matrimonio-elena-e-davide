@@ -45,10 +45,8 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-no-repeat z-[0] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 bg-cover bg-center bg-mountains bg-no-repeat z-[0] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
-          backgroundImage:
-            "url('/background.jpeg')",
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(255, 255, 255, 0.75)"
