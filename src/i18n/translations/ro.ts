@@ -2,7 +2,7 @@ import { BRIDE, GROOM } from "../../config/WeddingInfo";
 
 export default {
   "app.title": `${BRIDE.name} & ${GROOM.name} - Ne Căsătorim!`,
-  "app.announcement": "Anunțăm căsătoria noastră",
+  "app.announcement": "Anunțăm cu bucurie că ne căsătorim",
   "app.date": "20 Septembrie 2025",
   "app.time": "Ora 16:30",
   "app.discoverMore": "Află mai multe",
@@ -14,8 +14,8 @@ export default {
   "details.date": "Data",
   "details.time": "Ora",
   "details.location": "Locația",
-  "details.ceremony.line1": "Ceremonia la ora 16:30",
-  "details.ceremony.line2": "vor avea loc la ora 16:30",
+  "details.ceremony.line1": "Ceremonia și recepția",
+  "details.ceremony.line2": "vor începe la ora 16.30",
   "details.venue": 'Agriturismo "La Rondanina"',
   "details.address": "Via Sandrone 231",
   "details.city": "Castelnuovo Fogliani (PC)",
@@ -26,7 +26,9 @@ export default {
   "calendar.location":
     'Agriturismo "La Rondanina" Via Sandrone, 231, Castelnuovo Fogliani PC',
   "rsvp.title": "RSVP",
-  "rsvp.deadline": "Vă rugăm să confirmați prezența până la",
+  "rsvp.deadline.line1":
+    "Ne vom bucura să împărtășim această zi specială cu voi.",
+  "rsvp.deadline.line2": "Vă rugăm să confirmați participarea până la data de",
   "rsvp.deadlineDate": "31 August 2025",
   "rsvp.contact": "Contactați-ne pentru toate detaliile",
   "rsvp.dietary":
