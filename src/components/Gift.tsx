@@ -19,14 +19,14 @@ const Gift = () => {
   };
 
   return (
-    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-beige-50/25 backdrop-blur-xs rounded-xl shadow-md p-6 md:p-8 text-center hover:shadow-lg transition-shadow duration-300">
       <div className="text-sage-700  mb-8">
         <p>{t("gift.description")}</p>
         <p className="mt-2">{t("gift.contribution")}</p>
       </div>
 
       <div className="relative">
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto shadow-sm hover:shadow-md transition-all duration-300 border border-sage-100">
+        <div className="bg-white/80 backdrop-blur-xs rounded-lg py-3 px-4 mb-4 font-mono text-sage-800 break-all text-sm sm:text-base overflow-x-auto shadow-xs hover:shadow-md transition-all duration-300 border border-sage-100">
           <span className="inline-block min-w-full text-center">
             {t("gift.iban")}
           </span>

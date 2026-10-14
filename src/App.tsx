@@ -39,20 +39,20 @@ function App() {
     <div className="min-h-screen font-serif text-sage-800">
       {/* Fixed background */}
       <div
-        className={`fixed inset-0 bg-cover bg-center bg-mountains bg-no-repeat z-[0] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`fixed inset-0 bg-cover bg-center bg-mountains bg-no-repeat z-0 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         style={{
           backgroundAttachment: "fixed",
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(255, 255, 255, 0.75)"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/80"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-white/80 via-transparent to-white/80"></div>
       </div>
 
       {/* Content */}
       <div
         data-testid="content-container"
-        className={`relative z-[10] transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`relative z-10 transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
       >
         <LanguageSelector />
 

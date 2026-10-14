@@ -51,7 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ countdownRef, showStickyCount
         </div>
         {/* Sticky Countdown Timer */}
         <div
-          className={`fixed top-0 left-0 right-0 z-[50] py-2 pointer-events-none transition-all duration-500 ease-in-out transform ${
+          className={`fixed top-0 left-0 right-0 z-50 py-2 pointer-events-none transition-all duration-500 ease-in-out transform ${
             showStickyCountdown ? "opacity-100" : "opacity-0"
           }`}
           style={{ minWidth: 0 }}
