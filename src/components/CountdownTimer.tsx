@@ -108,7 +108,7 @@ const CountdownItem: React.FC<{
   return (
     <div className="flex flex-col items-center animate-pulse">
       <div
-        className={`bg-white/80 backdrop-blur-sm rounded-lg shadow-md ${boxSize} flex items-center justify-center border border-sage-200 transition-all duration-500 ease-in-out transform`}
+        className={`bg-white/80 backdrop-blur-xs rounded-lg shadow-md ${boxSize} flex items-center justify-center border border-sage-200 transition-all duration-500 ease-in-out transform`}
       >
         <span className={`${textSize} font-bold text-sage-800`}>{value}</span>
       </div>
