@@ -1,6 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+@utility animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+@utility animation-delay-900 {
+  animation-delay: 900ms;
+}
+
+@utility animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+@utility animation-delay-1500 {
+  animation-delay: 1500ms;
+}
 
 @layer base {
   html {
@@ -17,28 +55,6 @@
 
   .font-cursive {
     font-family: "Dancing Script", cursive;
-  }
-}
-
-@layer utilities {
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  .animation-delay-900 {
-    animation-delay: 900ms;
-  }
-
-  .animation-delay-1000 {
-    animation-delay: 1000ms;
-  }
-
-  .animation-delay-1500 {
-    animation-delay: 1500ms;
   }
 }
 

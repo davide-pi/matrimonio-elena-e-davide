@@ -7,7 +7,7 @@ const RSVP = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-beige-50/25 backdrop-blur-xs rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
       <div className="max-w-xl mx-auto text-center">
         <div className="text-sage-700 mb-6">
           <p>{t("rsvp.deadline.line1")}</p>
