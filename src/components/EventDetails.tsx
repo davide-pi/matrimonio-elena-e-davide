@@ -39,7 +39,7 @@ const EventDetails: React.FC = () => {
   };
 
   return (
-    <div className="bg-beige-50/25 backdrop-blur-sm rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg text-center transition-shadow duration-300">
+    <div className="bg-beige-50/25 backdrop-blur-xs rounded-xl shadow-md p-6 md:p-8 hover:shadow-lg text-center transition-shadow duration-300">
         <div className="space-y-6">
           <div className="space-y-2">
             <h3 className="text-xl font-semibold text-sage-800 flex justify-center items-center">
@@ -99,7 +99,7 @@ const EventDetails: React.FC = () => {
         <button
           type="button"
           onClick={handleCalendarClick}
-          className="bg-white/75 p-4 rounded-full shadow-sm hover:shadow-lg transition-all duration-300"
+          className="bg-white/75 p-4 rounded-full shadow-xs hover:shadow-lg transition-all duration-300"
           id="custom-calendar-btn"
         >
           <CalendarPlus2 className="inline-block mr-2" size={20} />

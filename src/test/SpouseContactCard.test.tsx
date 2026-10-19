@@ -74,7 +74,7 @@ describe('SpouseContactCard Component', () => {
     const cardContainer = container.firstChild;
     expect(cardContainer).toHaveClass('bg-white/75');
     expect(cardContainer).toHaveClass('rounded-lg');
-    expect(cardContainer).toHaveClass('shadow-sm');
+    expect(cardContainer).toHaveClass('shadow-xs');
     expect(cardContainer).toHaveClass('hover:shadow-lg');
 
     // Check heading styling
